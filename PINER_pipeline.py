@@ -37,26 +37,26 @@ for img_ind in range(0,300):
         prefix = 'a'
         offset = -200
     gt_img_name = prefix + '_' + str(img_ind+offset) + '.npy'
-    # set_state('configs/image_regression_adapt.yaml', 'lr', 5e-5)
-    # set_state('configs/image_regression_adapt.yaml', 'img_path', fbp_path + 'test' + str(img_ind) + 'proj' + str(num_projs) + '.npy')
-    # os.system('python train_image_regression_test.py --config configs/image_regression_adapt.yaml --output_path  /data/bowen/SparseReconstruction/3d-ct-full-dose/model_twopass')
-    # os.system('python try_recon.py  --config configs/unet.yaml --output_path  /data/bowen/SparseReconstruction/3d-ct-full-dose/models')
+    set_state('configs/image_regression_adapt.yaml', 'lr', 5e-5)
+    set_state('configs/image_regression_adapt.yaml', 'img_path', fbp_path + 'test' + str(img_ind) + 'proj' + str(num_projs) + '.npy')
+    os.system('python train_image_regression_test.py --config configs/image_regression_adapt.yaml --output_path  /data/bowen/SparseReconstruction/3d-ct-full-dose/model_twopass')
+    os.system('python try_recon.py  --config configs/unet.yaml --output_path  /data/bowen/SparseReconstruction/3d-ct-full-dose/models')
 
-    # input_ = np.load('adapts_prod.npy')
-    # output_ = np.load('cnn_adapt_prod.npy')
-    # gt_input = np.load(fbp_path + 'test' + str(img_ind) +  'proj' + str(num_projs) + '.npy')
-    ###adapt_flag = True if using original input, False if using adapted input
+    input_ = np.load('adapts_prod.npy')
+    output_ = np.load('cnn_adapt_prod.npy')
+    gt_input = np.load(fbp_path + 'test' + str(img_ind) +  'proj' + str(num_projs) + '.npy')
+    ##adapt_flag = True if using original input, False if using adapted input
     
-    # adapt_flag, adapt_output = get_adaptation(input_, gt_input, output_, window_size = 7)
-    # print(adapt_flag)
-    # np.save(PINER_prior_path + 'adapted_input' + str(img_ind) + '_redo.npy', np.clip(crop_img(adapt_output),0,1))
+    adapt_flag, adapt_output = get_adaptation(input_, gt_input, output_, window_size = 7)
+    print(adapt_flag)
+    np.save(PINER_prior_path + 'adapted_input' + str(img_ind) + '_redo.npy', np.clip(crop_img(adapt_output),0,1))
 
 
-    # set_state('configs/image_regression.yaml', 'img_path', PINER_prior_path + 'adapted_input' + str(img_ind) + '.npy')
-    # set_state('configs/image_regression.yaml', 'num_projs', num_projs)
-    # set_state('configs/image_regression.yaml', 'img_index', img_ind)
-    # set_state('configs/image_regression.yaml', 'recon_path', adaptive_prior_path + 'img' + str(img_ind) + '.npy')
-    # os.system('python train_image_regression.py --config configs/image_regression.yaml --output_path  /data/bowen/SparseReconstruction/3d-ct-full-dose/models')
+    set_state('configs/image_regression.yaml', 'img_path', PINER_prior_path + 'adapted_input' + str(img_ind) + '.npy')
+    set_state('configs/image_regression.yaml', 'num_projs', num_projs)
+    set_state('configs/image_regression.yaml', 'img_index', img_ind)
+    set_state('configs/image_regression.yaml', 'recon_path', adaptive_prior_path + 'img' + str(img_ind) + '.npy')
+    os.system('python train_image_regression.py --config configs/image_regression.yaml --output_path  /data/bowen/SparseReconstruction/3d-ct-full-dose/models')
 
 
     set_state('configs/ct_recon.yaml', 'img_path', gt_path + gt_img_name)
