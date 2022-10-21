@@ -1,0 +1,13 @@
+img_index: 1
+latent_dim: 64
+lr: 0.0001
+# model_dir: /data/bowen/SparseReconstruction/3d-ct-full-dose/models/VAE11082021-1
+# model_dir: /data/bowen/SparseReconstruction/3d-ct-full-dose/models/VAE12012021-200
+# model_dir: /data/bowen/SparseReconstruction/3d-ct-full-dose/models/VAE12272021-200
+# model_dir: /data/bowen/SparseReconstruction/3d-ct-full-dose/models/VAE12282021-3-200
+model_dir: /data/bowen/SparseReconstruction/3d-ct-full-dose/models/VAE12282021-4-200
+# model_dir: /data/bowen/SparseReconstruction/3d-ct-full-dose/models/VAE12282021-5-200
+# model_dir: /data/bowen/SparseReconstruction/3d-ct-full-dose/models/VAE12282021-6-200
+
+model_type: VAE
+num_projs: 20

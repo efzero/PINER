@@ -1,0 +1,4 @@
+
+img_path: residual_adaptive/residual_proj25img17chest.npy
+num_proj: 25
+output_path: residual_proj_test25.npy

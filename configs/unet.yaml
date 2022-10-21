@@ -1,0 +1,15 @@
+batch_size: 1
+beta1: 0.9
+beta2: 0.999
+
+
+img_size: 256
+log_iter: 10
+loss: L2
+lr: 0.00001
+max_iter: 100
+
+num_projs: 25
+optimizer: Adam
+val_iter: 100
+weight_decay: 0.0001

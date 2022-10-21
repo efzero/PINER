@@ -1,0 +1,29 @@
+batch_size: 1
+beta1: 0.9
+beta2: 0.999
+body_part: chest
+data: phantom
+encoder:
+  coordinates_size: 2
+  embedding: gauss
+  embedding_size: 256
+  scale: 4
+image_index: 0
+img_index: 99
+img_path: /data/bowen/SparseReconstruction/3d-ct-full-dose/lidc/PINERprior/adapted_input99_robust.npy
+img_size: 256
+log_iter: 10
+loss: L2
+lr: 0.0001
+max_iter: 1000
+model: SIREN
+net:
+  network_depth: 8
+  network_input_size: 512
+  network_output_size: 1
+  network_width: 256
+num_projs: 25
+optimizer: Adam
+recon_path: /data/bowen/SparseReconstruction/3d-ct-full-dose/adaptive_prior/img99.npy
+val_iter: 100
+weight_decay: 0.0001
