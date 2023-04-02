@@ -1,6 +1,4 @@
-# PINER
-
-# NeRP: Implicit Neural Representation Learning With Prior Embedding for Sparsely Sampled Image Reconstruction
+# PINER: Prior-Informed Implicit Neural Representation Learning for Test-Time Adaptation in Sparse-View CT Reconstruction
 
 
 ## Contents
