@@ -20,7 +20,7 @@ by [Bowen Song], Liyue Shen, Lei Xing
 We propose a two-stage input-adaptation and output-correction framework with implicit neural representation learning for test-time adaptation for sparse-view CT reconstruction with unknown and varying noise levels. 
 
 <p align="center">
-  <img src="https://github.com/liyues/NeRP/blob/main/img/Figure_1.svg" width="1200" height="600">
+  <img src="https://github.com/efzero/PINER/blob/master/networks/flowchart_revised_finalfinal_compressed.jpg" width="1200" height="600">
 </p>
 
 # 2. Installation Guide
