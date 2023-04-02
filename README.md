@@ -15,12 +15,12 @@
 
 This repository provides the PyTorch code for our WACV 2023 papar [PINER: Prior-Informed Implicit Neural Representation Learning for Test-Time Adaptation in Sparse-View CT Reconstruction](https://openaccess.thecvf.com/content/WACV2023/html/Song_PINER_Prior-Informed_Implicit_Neural_Representation_Learning_for_Test-Time_Adaptation_in_WACV_2023_paper.html).
 
-by [Bowen Song], Liyue Shen, Lei Xing
+by [Bowen Song](https://web.stanford.edu/~bowens18/), Liyue Shen, Lei Xing
 
 We propose a two-stage input-adaptation and output-correction framework with implicit neural representation learning for test-time adaptation for sparse-view CT reconstruction with unknown and varying noise levels. 
 
 <p align="center">
-  <img src="https://github.com/efzero/PINER/blob/master/networks/flowchart_revised_finalfinal_compressed.jpg" width="1200" height="600">
+  <img src="https://github.com/efzero/PINER/blob/master/networks/flowchart_revised_finalfinal_compressed.jpg" width="1200" height="400">
 </p>
 
 # 2. Installation Guide
