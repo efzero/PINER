@@ -39,6 +39,7 @@ yaml: 0.1.7
 opencv: 3.4.2
 odl: 1.0.0.dev0
 astra-toolbox
+torch-radon
 ```
 
 
@@ -59,9 +60,15 @@ pip install package-name
 
 The experiments of 2D CT image reconstruction use the 2D parallel-beam geometry.
 
+
+### Step 0: Input Adapataion
+Get an adapted input based on output analysis 
+train_image_regression_test.py
+
+
 ### Step 1: Prior embedding
 
-Represent 2D image by implicit network network. The prior image ([pancs_4dct_phase1.npz](./data/ct_data/pancs_4dct_phase1.npz): phase-1 image of a 10-phase 4D pancreas CT data) is provided under [data/ct_data](./data/ct_data) folder.
+Represent 2D image by implicit network network. 
 
 ```
 python train_image_regression.py --config configs/image_regression.yaml
@@ -69,57 +76,19 @@ python train_image_regression.py --config configs/image_regression.yaml
 
 ### Step 2: Network training
 
-Reconstruct 2D CT image from sparsely sampled projections. The reconstruction target image ([pancs_4dct_phase6.npz](./data/ct_data/pancs_4dct_phase6.npz): phase-6 image of a 10-phase 4D pancreas CT data) is provided under [data/ct_data](./data/ct_data) folder.
-
+Reconstruct 2D CT image from sparsely sampled projections. 
 With prior embedding:
+python train_ct_recon2.py --config configs/ctrecon.yaml
+
+
+
+### Three Step Pipeline
 ```
-python train_ct_recon.py --config configs/ct_recon.yaml --pretrain
-```
-
-Without prior embedding:
-```
-python train_ct_recon.py --config configs/ct_recon.yaml
-```
-
-## 3D CT Reconstruction Experiment
-
-The experiments of 3D CT image reconstruction use the 3D cone-beam geometry.
-
-### Step 1: Prior embedding
-
-Represent 3D image by implicit network network. The prior image ([pancs_4dct_phase1.npz](./data/ct_data/pancs_4dct_phase1.npz): phase-1 image of a 10-phase 4D pancreas CT data) is provided under [data/ct_data](./data/ct_data) folder.
-
-```
-python train_image_regression_3d.py --config configs/image_regression_3d.yaml
+python PINER_pipeline.py
 ```
 
-### Step 2: Network training
 
-Reconstruct 3D CT image from sparsely sampled projections. The reconstruction target image ([pancs_4dct_phase6.npz](./data/ct_data/pancs_4dct_phase6.npz): phase-6 image of a 10-phase 4D pancreas CT data) is provided under [data/ct_data](./data/ct_data) folder.
 
-With prior embedding:
-```
-train_ct_recon_3d.py --config configs/ct_recon_3d.yaml --pretrain
-```
-
-Without prior embedding:
-```
-python train_ct_recon_3d.py --config configs/ct_recon_3d.yaml
-```
-
-### Step 3: Image inference
-
-Output and save the reconstruted 3D image after training is done at a specified iteration step.
-
-With prior embedding:
-```
-python test_ct_recon_3d.py --config configs/ct_recon_3d.yaml --pretrain --iter 2000
-```
-
-Without prior embedding:
-```
-python test_ct_recon_3d.py --config configs/ct_recon_3d.yaml --iter 2000
-```
 
 
 # 5. Citation
